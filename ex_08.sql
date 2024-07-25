@@ -1,6 +1,5 @@
 SELECT 
     strftime('%Y', InvoiceDate) AS year,
-    count(*) AS invoice_count,
     sum(Total) AS invoice_sum
 FROM Invoice
 GROUP BY strftime('%Y', InvoiceDate)

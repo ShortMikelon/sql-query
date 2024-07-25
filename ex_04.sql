@@ -1,4 +1,4 @@
 SELECT
 	FirstName || ' ' || LastName AS full_name
 FROM Employee
-WHERE title LIKE '%sales%' OR '%agent%';
+WHERE title LIKE '%sales%' AND LIKE '%agent%';

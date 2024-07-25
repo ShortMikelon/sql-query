@@ -5,4 +5,5 @@ SELECT
 FROM InvoiceLine il
 JOIN Track t ON t.TrackId = il.TrackId
 JOIN Album al ON al.AlbumId = t.AlbumId
-JOIN Artist a ON a.Artistid = al.ArtistId;
+JOIN Artist a ON a.Artistid = al.ArtistId
+GROUP BY t.Name;

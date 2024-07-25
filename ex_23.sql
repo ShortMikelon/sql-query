@@ -1,6 +1,9 @@
 SELECT 
-    (SELECT Name FROM Track WHERE TrackId = InvoiceLine.TrackId) AS track,
+    t.Name,
     sum(Quantity) AS quantity
-FROM InvoiceLine
-GROUP BY TrackId
+FROM InvoiceLine il
+JOIN Invoice i ON i.InvoiceId = il.InvoiceId
+JOIN Track t ON il.TrackId = t.TrackId
+WHERE i.InvoiceDate LIKE '2013%'
+GROUP BY t.Name
 ORDER BY sum(quantity) DESC;
